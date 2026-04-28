@@ -1,0 +1,92 @@
+/* Simple Staff List Rewrite - Admin Styles */
+
+/* ── Meta box fields ────────────────────────────────────────────────────────── */
+
+.sslr-meta-wrap {
+    padding: 4px 0;
+}
+
+.sslr-meta-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.sslr-meta-row label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+.sslr-meta-row input[type="text"],
+.sslr-meta-row input[type="email"],
+.sslr-meta-row input[type="url"] {
+    width: 100%;
+    max-width: 500px;
+}
+
+/* ── List table photo column ─────────────────────────────────────────────────── */
+
+.column-photo {
+    width: 70px;
+}
+
+.column-photo img {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+}
+
+.column-id {
+    width: 60px;
+}
+
+/* ── Drag-to-reorder list ────────────────────────────────────────────────────── */
+
+#sslr-sortable {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 600px;
+}
+
+#sslr-sortable li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+#sslr-sortable li:active {
+    cursor: grabbing;
+}
+
+#sslr-sortable li .dashicons {
+    color: #aaa;
+    flex-shrink: 0;
+}
+
+#sslr-sortable li img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.sslr-save-order {
+    margin-top: 12px;
+}
+
+.sslr-order-notice {
+    margin-top: 8px;
+    font-style: italic;
+    color: #666;
+}
