@@ -1,0 +1,208 @@
+/*
+ * Simple Staff List Rewrite - Public Styles
+ *
+ * BEM class structure:
+ *   .sslr-grid                  — outer wrapper (the grid)
+ *   .sslr-cols-1/2/3            — column count modifier
+ *   .sslr-group-{slug}          — group modifier (e.g. .sslr-group-elders)
+ *   .sslr-member                — individual card
+ *   .sslr-member__photo         — photo wrapper
+ *   .sslr-member__photo-img     — the <img> tag
+ *   .sslr-member__info          — text content wrapper
+ *   .sslr-member__name          — name
+ *   .sslr-member__position      — position/title
+ *   .sslr-member__bio           — bio text
+ *   .sslr-member__email         — email link
+ *   .sslr-member__phone         — phone link
+ *   .sslr-member__social        — social links wrapper
+ *   .sslr-social                — individual social link
+ *   .sslr-social--facebook      — Facebook modifier
+ *   .sslr-social--twitter       — Twitter modifier
+ *
+ * To customize: add rules to your theme stylesheet using these classes.
+ * All spacing/color rules below are intentionally minimal so they don't
+ * fight your theme.
+ */
+
+/* ── Grid ──────────────────────────────────────────────────────────────────── */
+
+.sslr-grid {
+    display: grid;
+    grid-template-columns: 1fr;        /* mobile: single column by default */
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2-column layout: kicks in at 560px */
+@media (min-width: 560px) {
+    .sslr-cols-2,
+    .sslr-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 3-column layout: kicks in at 860px */
+@media (min-width: 860px) {
+    .sslr-cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ── Card ───────────────────────────────────────────────────────────────────── */
+
+.sslr-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;          /* center photo + info horizontally within card */
+    text-align: center;
+}
+
+/* ── Photo ──────────────────────────────────────────────────────────────────── */
+
+.sslr-member__photo {
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.sslr-member__photo-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 200px;             /* cap photo size on wide screens */
+    margin: 0 auto;
+    border-radius: 50%;           /* circular photos — remove this for square */
+    object-fit: cover;
+    aspect-ratio: 1 / 1;         /* forces square crop */
+}
+
+/* ── Info block ─────────────────────────────────────────────────────────────── */
+
+.sslr-member__info {
+    width: 100%;
+}
+
+/* ── Name ───────────────────────────────────────────────────────────────────── */
+
+.sslr-member__name {
+    margin: 0 0 0.2em;
+    font-size: 1.05em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.sslr-member__name a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sslr-member__name a:hover {
+    text-decoration: underline;
+}
+
+/* ── Position ───────────────────────────────────────────────────────────────── */
+
+.sslr-member__position {
+    margin: 0 0 0.5em;
+    font-size: 0.9em;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* ── Bio ────────────────────────────────────────────────────────────────────── */
+
+.sslr-member__bio {
+    font-size: 0.9em;
+    line-height: 1.6;
+    text-align: left;
+    margin-top: 0.5em;
+}
+
+.sslr-member__bio p {
+    margin: 0 0 0.5em;
+}
+
+.sslr-member__bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Email & Phone ──────────────────────────────────────────────────────────── */
+
+.sslr-member__email,
+.sslr-member__phone {
+    margin: 0.25em 0 0;
+    font-size: 0.9em;
+}
+
+.sslr-member__email a,
+.sslr-member__phone a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.sslr-member__email a:hover,
+.sslr-member__phone a:hover {
+    text-decoration: underline;
+}
+
+/* ── Social ─────────────────────────────────────────────────────────────────── */
+
+.sslr-member__social {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.sslr-social {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    font-size: 0.8em;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+}
+
+.sslr-social:hover {
+    opacity: 1;
+}
+
+/* ── Utility: clearfix in case theme needs it ───────────────────────────────── */
+
+.sslr-grid::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* ── Contact link ────────────────────────────────────────────────────────────── */
+
+.sslr-member__contact {
+    margin-top: 0.6rem;
+}
+
+.sslr-contact-link {
+    display: inline-block;
+    padding: 0.35em 1em;
+    font-size: 0.85em;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.15s;
+}
+
+.sslr-contact-link:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+
+/* ── Contact button below photo ──────────────────────────────────────────────── */
+
+.sslr-member__contact--below-photo {
+    margin-top: 0.6rem;
+    text-align: center;
+}
